@@ -1,10 +1,26 @@
 import "./styles.css";
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>
-`;
+const onClickAdd = () => {
+  const inputText = document.querySelector("#add-text").value;
+  document.querySelector("#add-text").value = "";
+
+  const div = document.createElement("div");
+  div.className = "list-row";
+  const li = document.createElement("li");
+  const p = document.createElement("p");
+  const button = document.createElement("button");
+  button.innerText = "完了";
+  const button2 = document.createElement("button");
+  button2.innerText = "削除";
+  const ul = document.querySelector("#incomplete-list");
+  p.innerText = inputText;
+  li.appendChild(div);
+  div.appendChild(p);
+  div.appendChild(button);
+  div.appendChild(button2);
+  ul.appendChild(li);
+};
+
+document
+  .querySelector("#add-button")
+  .addEventListener("click", () => onClickAdd());
